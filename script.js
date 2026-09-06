@@ -87,22 +87,58 @@ if(!reduceMotion){
 }
 
 const form = document.querySelector("#rsvpForm");
-form?.addEventListener("submit", async (e) => { e.preventDefault();
-const submitButton = form.querySelector( 'button[type="submit"]' );
-const originalText = submitButton.textContent;
-submitButton.disabled = true; submitButton.textContent = "Отправляем...";
-const formData = new FormData(form);
-const data = Object.fromEntries(formData.entries());
-try { const response = await fetch( "https://functions.yandexcloud.net/d4eqk02gnarujua1o7b9", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) } );
 
-if (!response.ok) {
-  throw new Error("Ошибка отправки");
-}
+form?.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-form.reset();
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalText = submitButton.textContent;
 
-submitButton.textContent = "Ответ отправлен ♡";
-} catch (error) { console.error(error);
+  submitButton.disabled = true;
+  submitButton.textContent = "Отправляем...";
 
-submitButton.textContent = "Попробуйте ещё раз";
-} finally { setTimeout(() => { submitButton.disabled = false; submitButton.textContent = originalText; }, 4000); } });
+
+  const formData = new FormData(form);
+  const data = {};
+  formData.forEach((value, key) => {
+    if (data[key]) {
+      if (!Array.isArray(data[key])) data[key] = [data[key]];
+      data[key].push(value);
+    } else {
+      data[key] = value;
+    }
+  });
+
+  try {
+
+    const response = await fetch("https://formspree.io/f/myeydrer", { 
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("Ошибка от Formspree:", errorData);
+      throw new Error("Ошибка отправки");
+    }
+
+    // Успешная отправка
+    form.reset();
+    submitButton.textContent = "Ответ отправлен ♡";
+    return; // Кнопка остается заблокированной, чтобы избежать дублей
+
+  } catch (error) {
+    console.error(error);
+    submitButton.textContent = "Попробуйте ещё раз";
+    
+    // Возвращаем кнопку в исходное состояние только при ошибке
+    setTimeout(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }, 4000);
+  }
+});
