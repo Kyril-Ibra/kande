@@ -95,7 +95,6 @@ const formData = new FormData(form);
 const data = Object.fromEntries(formData.entries());
 try { const response = await fetch( "https://functions.yandexcloud.net/d4eqk02gnarujua1o7b9", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) } );
 
-JavaScript
 if (!response.ok) {
   throw new Error("Ошибка отправки");
 }
