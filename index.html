@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Кирилл & Елизавета | 27.06.2027</title>
+  <meta name="description" content="Свадьба Кирилла и Елизаветы — 27 июня 2027" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Manrope:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="monogram" href="#home" aria-label="На главную">
+      <img src="images/logo.png" alt="K&E" class="monogram-image"/>
+    </a>
+    <!-- <a class="monogram" href="#home">K&amp;E</a> -->
+    <!-- <img class="monogram" src="images/logo.png" href="#home"></img> -->
+
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="#home">Главная</a>
+      <a href="#program">Программа</a>
+      <a href="#venue">Место проведения</a>
+      <a href="#details">Детали</a>
+    </nav>
+
+    <a class="rsvp-pill desktop-rsvp" href="#rsvp">Я приду!</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav class="mobile-menu-nav" aria-label="Мобильная навигация">
+        <a href="#home">Главная</a>
+        <a href="#program">Программа</a>
+        <a href="#venue">Место проведения</a>
+        <a href="#details">Детали</a>
+      </nav>
+      <a class="rsvp-pill mobile-rsvp" href="#rsvp">Я приду!</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <!-- <img class="hero-image" src="images/herowithnamesanddate2.jpg" alt="Кирилл и Елизавета" /> -->
+      <picture class="hero-picture">
+        <source media="(max-width: 800px)" srcset="images/herowithnamesanddatemobile.jpg">
+        <img class="hero-image" src="images/herowithnamesanddate2.jpg" alt="Кирилл и Елизавета">
+      </picture>
+      <div class="hero-overlay"></div>
+      <!-- <div class="hero-copy"> -->
+        <!-- <div class="hero-kicker">Впереди наш особенный день</div> -->
+        <!-- <img class="hero-names-image" src="images/names.png" alt="Кирилл и Елизавета"/>
+      </div>
+      <div class="hero-date">27 · 06 · 2027</div> -->
+    </section>
+
+    <section class="intro section-pad">
+      <div class="intro-copy">
+        <h1>Мы женимся! И нам уже нетерпится скорее разделить наш важнейший день с вами.</h1>
+        <p>Пожалуйста, сохраните эту дату в своем календаре. Подробности последуют в официальном приглашении.</p>
+        <p class="signature">— С любовью, Лиза &amp; Кирилл</p>
+      </div>
+    </section>
+
+    <section class="date-story" aria-label="Дата свадьбы">
+      <article class="date-card">
+        <img src="images/image7.jpg" alt="Кирилл и Елизавета на берегу" />
+        <span>27</span>
+      </article>
+      <article class="date-card">
+        <img src="images/image8.jpg" alt="Кирилл и Елизавета идут по берегу" />
+        <span>06</span>
+      </article>
+      <article class="date-card">
+        <img src="images/image9.jpg" alt="Кирилл и Елизавета вечером" />
+        <span>27</span>
+      </article>
+    </section>
+
+    <section class="program section-pad" id="program">
+      <div class="section-heading">
+        <h2>ПРОГРАММА</h2>
+        <p>Немного о том, что вас ждет 27 июня 2027. Весь праздник состоится на одной площадке. Мы хотим, чтобы вы наслаждались каждым моментом дня, хорошей компанией и могли быть частью нашего события от начала и до конца!</p>
+      </div>
+      <div class="timeline">
+        <article class="event left">
+          <div class="event-copy"><time>15:30</time><h3>Встреча гостей</h3><img class="event-icon mobile-icon" src="images/icon1.png" alt="Бокалы" /><p>Welcome-фуршет и первые встречи</p></div>
+          <img class="event-icon desktop-icon" src="images/icon1.png" alt="Бокалы" />
+        </article>
+        <article class="event right">
+          <img class="event-icon desktop-icon" src="images/icon5.png" alt="Кольца" />
+          <div class="event-copy"><time>16:00</time><h3>Церемония</h3><img class="event-icon mobile-icon" src="images/icon5.png" alt="Кольца" /><p>Главный момент дня</p></div>
+        </article>
+        <article class="event left">
+          <div class="event-copy"><time>16:30</time><h3>Коктейльный час</h3><img class="event-icon mobile-icon" src="images/icon2.png" alt="Коктейль" /><p>Время для общения и коктейля на свежем воздухе</p></div>
+          <img class="event-icon desktop-icon" src="images/icon2.png" alt="Коктейль" />
+        </article>
+        <article class="event right">
+          <img class="event-icon desktop-icon" src="images/icon7.png" alt="Торт" />
+          <div class="event-copy"><time>17:30</time><h3>Праздничный вечер</h3><img class="event-icon mobile-icon" src="images/icon7.png" alt="Торт" /><p>Ужин, развлечения, тосты и программа</p></div>
+        </article>
+        <article class="event left">
+          <div class="event-copy"><time>22:30</time><h3>Afterparty</h3><img class="event-icon mobile-icon" src="images/icon3.png" alt="Диско-шар" /><p>Музыка и танцы</p></div>
+          <img class="event-icon desktop-icon" src="images/icon3.png" alt="Диско-шар" />
+        </article>
+        <article class="event right">
+          <img class="event-icon desktop-icon" src="images/icon4.png" alt="Бенгальский огонь" />
+          <div class="event-copy"><time>23:30</time><h3>Финал вечера</h3><img class="event-icon mobile-icon" src="images/icon4.png" alt="Бенгальский огонь" /><p>Закончим день красиво</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="venue section-pad" id="venue">
+      <div class="section-heading"><h2>МЕСТО ПРОВЕДЕНИЯ</h2></div>
+      <img class="venue-image" src="images/venue.jpg" alt="The Birch" />
+      <div class="venue-copy">
+        <h3>The Birch</h3>
+        <div class="eyebrow">Солнечногорск, Московская область</div>
+        <p>Мы долго и тщательно подбирали пространство с особым настроением, которое могло бы стать частью нашего большого события. Именно The Birch впечатлил нас сочетанием изящности архитектуры и выразительного интерьера с окружением векового леса и сказочной природы.</p>
+        <p>Мы уверены, что атмосфера этого места поможет передать всю душевность и настроение, которые мы хотели бы пережить вместе с вами.</p>
+        <a class="dark-button" href="https://yandex.ru/maps/org/the_birch/201338313661/?ll=37.152057%2C56.096667&z=10" target="_blank" rel="noreferrer">Посмотреть на карте →</a>
+      </div>
+    </section>
+
+    <section class="details section-pad" id="details">
+      <div class="section-heading"><h2>ЧТО ВАЖНО ЗНАТЬ</h2></div>
+      <div class="faq">
+        <details><summary>Как получить приглашение?</summary><p>Оставьте свои актуальные данные в анкете, и мы отправим его вам ближе к дате события.</p></details>
+        <details><summary>Будет ли трансфер?</summary><p>Да, мы планируем организованный трансфер из Москвы до места проведения свадьбы и обратно. Более точное время и место отправления сообщим в официальном приглашении.</p></details>
+        <details><summary>Есть ли на территории парковка?</summary><p>Да, если вы планируете прибытие на своем автомобиле, для вас будет выделено бесплатное парковочное место у площадки.</p></details>
+        <details><summary>Какой будет дресс-код?</summary><p>Ваше присутствие для нас самое главное. Мы будем рады видеть вас в нарядах самых разных оттенков и цветов. Просим лишь избегать полностью черных и белых образов.</p></details>
+        <details><summary>Где остановиться, если я из другого города?</summary><p>Для гостей из других городов, которым понадобится проживание, мы поможем с подбором и организацией удобного варианта. Просто сообщите нам об этом в анкете.</p></details>
+        <details><summary>Если у меня есть особые пожелания к меню?</summary><p>Если у вас есть аллергии, непереносимости или особые предпочтения в питании, расскажите нам об этом в анкете. Мы подготовим для вас подходящий вариант меню.</p></details>
+        <details><summary>Можно ли прийти с детьми?</summary><p>Конечно, мы будем рады видеть вас всей семьей. Если вы планируете прийти с ребенком, пожалуйста, укажите его имя и возраст в анкете.</p></details>
+      </div>
+    </section>
+
+    <section class="rsvp section-pad" id="rsvp">
+      <div class="rsvp-grid">
+        <img src="images/image1.jpg" alt="Кирилл и Елизавета" />
+        <form id="rsvpForm" novalidate>
+          <h2>Будем рады вас видеть.<br>До скорой встречи!</h2>
+          <p class="form-lead">Пожалуйста, заполните анкету — это поможет нам всё организовать.</p>
+
+          <label>Ваше имя<input type="text" name="name" placeholder="Имя Фамилия" required></label>
+
+          <fieldset><legend>Планируете быть с нами?</legend>
+            <label class="choice"><input type="radio" name="attendance" value="Да, конечно" required><span>Да, конечно</span></label>
+            <label class="choice"><input type="radio" name="attendance" value="К сожалению, нет"><span>К сожалению, нет</span></label>
+          </fieldset>
+
+          <fieldset><legend>Планируете воспользоваться трансфером?</legend>
+            <label class="choice"><input type="radio" name="transfer" value="Да, воспользуюсь" required><span>Да, воспользуюсь</span></label>
+            <label class="choice"><input type="radio" name="transfer" value="Доберусь самостоятельно"><span>Доберусь самостоятельно</span></label>
+          </fieldset>
+
+          <fieldset><legend>Нужна ли помощь с проживанием?</legend>
+            <label class="choice"><input type="radio" name="stay" value="Да, приеду из другого города" required><span>Да, приеду из другого города</span></label>
+            <label class="choice"><input type="radio" name="stay" value="Помощь не требуется"><span>Помощь не требуется</span></label>
+          </fieldset>
+
+          <label>Есть ли особенности питания?<textarea name="food" placeholder="Например: вегетарианство, аллергии, непереносимости"></textarea></label>
+          <label>Оставьте свои комментарии и пожелания<textarea name="comments" placeholder="Я бы хотел..."></textarea></label>
+          <button type="submit">Отправить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="closing-image">
+      <img src="images/bottom.JPG" alt="Закат у моря" />
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
