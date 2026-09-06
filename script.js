@@ -86,15 +86,24 @@ if(!reduceMotion){
 
 }
 
-const form=document.getElementById('rsvpForm');
-form?.addEventListener('submit',e=>{
-  e.preventDefault();
-  if(!form.checkValidity()){
-    form.reportValidity();
-    return;
-  }
-  const data=Object.fromEntries(new FormData(form).entries());
-  localStorage.setItem('wedding-rsvp-draft',JSON.stringify(data));
-  const note=document.getElementById('formNote');
-  note.textContent='Данные сохранены локально в этом браузере. Чтобы ответы приходили вам, подключите endpoint формы перед публикацией.';
-});
+const form = document.querySelector("#rsvpForm");
+form?.addEventListener("submit", async (e) => { e.preventDefault();
+const submitButton = form.querySelector( 'button[type="submit"]' );
+const originalText = submitButton.textContent;
+submitButton.disabled = true; submitButton.textContent = "Отправляем...";
+const formData = new FormData(form);
+const data = Object.fromEntries(formData.entries());
+try { const response = await fetch( "https://functions.yandexcloud.net/d4eqk02gnarujua1o7b9", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) } );
+
+JavaScript
+if (!response.ok) {
+  throw new Error("Ошибка отправки");
+}
+
+form.reset();
+
+submitButton.textContent = "Ответ отправлен ♡";
+} catch (error) { console.error(error);
+
+submitButton.textContent = "Попробуйте ещё раз";
+} finally { setTimeout(() => { submitButton.disabled = false; submitButton.textContent = originalText; }, 4000); } });
