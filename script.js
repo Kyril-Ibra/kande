@@ -86,6 +86,7 @@ if(!reduceMotion){
 
 }
 
+//отправка формы:
 const form = document.querySelector("#rsvpForm");
 
 form?.addEventListener("submit", async (e) => {
@@ -96,7 +97,6 @@ form?.addEventListener("submit", async (e) => {
 
   submitButton.disabled = true;
   submitButton.textContent = "Отправляем...";
-
 
   const formData = new FormData(form);
   const data = {};
@@ -109,33 +109,33 @@ form?.addEventListener("submit", async (e) => {
     }
   });
 
-  try {
+  data["access_key"] = "9e48c60e-bdc3-4532-8436-67b5f2d8099d";
 
-    const response = await fetch("https://formspree.io/f/myeydrer", { 
+  try {
+    const response = await fetch("https://web3forms.com", {
       method: "POST",
       headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       },
       body: JSON.stringify(data)
     });
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error("Ошибка от Formspree:", errorData);
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok || !result.success) {
+      console.error("Ошибка от Web3Forms:", result);
       throw new Error("Ошибка отправки");
     }
 
-    // Успешная отправка
     form.reset();
     submitButton.textContent = "Ответ отправлен ♡";
-    return; // Кнопка остается заблокированной, чтобы избежать дублей
+    return;
 
   } catch (error) {
-    console.error(error);
+    console.error("Произошла ошибка:", error);
     submitButton.textContent = "Попробуйте ещё раз";
     
-    // Возвращаем кнопку в исходное состояние только при ошибке
     setTimeout(() => {
       submitButton.disabled = false;
       submitButton.textContent = originalText;
