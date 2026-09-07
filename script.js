@@ -112,7 +112,7 @@ form?.addEventListener("submit", async (e) => {
   data["access_key"] = "9e48c60e-bdc3-4532-8436-67b5f2d8099d";
 
   try {
-    const response = await fetch("https://web3forms.com", {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
