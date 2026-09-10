@@ -177,21 +177,62 @@
             <label class="choice"><input type="radio" name="accommodation" value="Помощь не требуется"><span>Помощь не требуется</span></label>
           </fieldset>
 
-          <label>Есть ли особенности питания?<textarea name="food" placeholder="Например: вегетарианство, аллергии, непереносимости"></textarea></label>
+          <label>Есть ли особенности питания?<textarea name="food" placeholder="Например: вегетарианство"></textarea></label>
           <label>Оставьте свои комментарии и пожелания<textarea name="comments" placeholder="Например: треки, которые заставят вас выйти на танцпол"></textarea></label>
         
           <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
           <button type="submit">Отправить</button>
+          <p class="form-note" id="formNote">Нажимая «Отправить», вы подтверждаете, что указанные данные могут быть использованы исключительно для организации нашего свадебного мероприятия.</p>
         </form>
       </div>
     </section>
 
-    <section class="closing-image">
+    <div class="closing-image">
       <img src="images/bottom.JPG" alt="Закат у моря" />
-    </section>
+      <button class="privacy-link" type="button" id="privacyOpen">Политика конфиденциальности</button>
+    </div>
   </main>
 
+<div class="privacy-modal" id="privacyModal" aria-hidden="true">
+  <div class="privacy-backdrop" id="privacyBackdrop"></div>
+
+  <div
+    class="privacy-dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="privacyTitle"
+  >
+    <button
+      class="privacy-close"
+      type="button"
+      id="privacyClose"
+      aria-label="Закрыть"
+    >
+      ×
+    </button>
+
+    <h2 id="privacyTitle">Политика конфиденциальности</h2>
+
+    <p>
+      Данные, указанные в анкете, используются исключительно
+      для личных и семейных нужд, а именно для организации 
+      нашего свадебного мероприятия 27 июня 2027 года.
+    </p>
+
+    <p>
+      Данные не используются в рекламных целях и не передаются
+      третьим лицам, кроме технических сервисов, необходимых
+      для обработки формы.
+    </p>
+
+    <p>
+      После того как данные перестанут быть необходимы для организации
+      мероприятия, они будут удалены.
+    </p>
+  </div>
+</div>
+  
   <script src="script.js"></script>
 </body>
 </html>

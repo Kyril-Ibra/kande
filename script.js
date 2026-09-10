@@ -142,3 +142,31 @@ form?.addEventListener("submit", async (e) => {
     }, 4000);
   }
 });
+
+
+const privacyModal = document.querySelector("#privacyModal");
+const privacyOpen = document.querySelector("#privacyOpen");
+const privacyClose = document.querySelector("#privacyClose");
+const privacyBackdrop = document.querySelector("#privacyBackdrop");
+
+function openPrivacyModal() {
+  privacyModal.classList.add("is-open");
+  privacyModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closePrivacyModal() {
+  privacyModal.classList.remove("is-open");
+  privacyModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+privacyOpen?.addEventListener("click", openPrivacyModal);
+privacyClose?.addEventListener("click", closePrivacyModal);
+privacyBackdrop?.addEventListener("click", closePrivacyModal);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closePrivacyModal();
+  }
+});
