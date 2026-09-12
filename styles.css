@@ -660,11 +660,12 @@ body.modal-open{
 
 .countdown{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(4,auto);
+  justify-content:center;
   align-items:start;
-  gap:30px;
+  column-gap:34px;
 
-  margin-bottom:50px;
+  margin-bottom:38px;
 }
 
 .countdown-item{
@@ -675,8 +676,8 @@ body.modal-open{
 
 .countdown-number{
   font-family:"EB Garamond",serif;
-  font-size:clamp(62px,7vw,104px);
-  font-weight:400;
+  font-size:clamp(46px,5vw,72px);
+  font-weight:300;
   line-height:.9;
 
   font-variant-numeric:tabular-nums;
@@ -685,24 +686,23 @@ body.modal-open{
 }
 
 .countdown-label{
-  margin-top:18px;
+  margin-top:12px;
 
   font-family:Manrope,Arial,sans-serif;
-  font-size:11px;
+  font-size:9px;
   font-weight:300;
 
-  letter-spacing:.22em;
+  letter-spacing:.18em;
   text-transform:uppercase;
 
-  color:rgba(39,37,33,.55);
+  color:rgba(39,37,33,.48);
 }
-
 
 /* ADD TO CALENDAR */
 
 .calendar-button{
-  width:min(420px,100%);
-  min-height:58px;
+  width:min(360px,100%);
+  min-height:46px;
 
   margin:0 auto;
 
@@ -714,9 +714,9 @@ body.modal-open{
   color:#fff;
 
   font-family:Manrope,Arial,sans-serif;
-  font-size:12px;
+  font-size:11px;
   font-weight:300;
-  letter-spacing:.12em;
+  letter-spacing:.11em;
   text-transform:uppercase;
 
   transition:
@@ -740,31 +740,31 @@ body.modal-open{
 @media(max-width:800px){
 
   .countdown-section{
-    padding:48px 18px 80px;
+    padding:42px 18px 68px;
   }
 
   .countdown{
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:7px;
-
-    margin-bottom:38px;
+    grid-template-columns:repeat(4,auto);
+    justify-content:center;
+    column-gap:14px;
+    margin-bottom:30px;
   }
 
   .countdown-number{
-    font-size:clamp(42px,13vw,58px);
+    font-size:38px;
+    font-weight:300;
   }
 
   .countdown-label{
-    margin-top:12px;
-
-    font-size:8px;
+    margin-top:8px;
+    font-size:7px;
     letter-spacing:.11em;
   }
 
   .calendar-button{
-    width:100%;
-    min-height:56px;
-    font-size:11px;
+    width:min(300px,100%);
+    min-height:44px;
+    font-size:10px;
   }
 }
 
