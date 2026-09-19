@@ -29,22 +29,69 @@ a{text-decoration:none;color:inherit}
 .menu-toggle{appearance:none;background:none;border:0;padding:0;margin:0;cursor:pointer;justify-self:end;width:34px;height:34px;align-items:center;justify-content:center;flex-direction:column;gap:5px}
 .menu-toggle span{display:block;width:24px;height:1.7px;background:rgba(39,37,33,.76);transition:transform .25s ease,opacity .25s ease}
 .mobile-menu{
-  position:absolute;left:-1px;right:-1px;top:calc(100% + 8px);background:rgba(245,242,235,.97);
-  border:1px solid rgba(39,37,33,.25);padding:18px 18px 22px;box-shadow:0 20px 38px rgba(39,37,33,.08)
+  position:absolute;
+  left:-1px;
+  right:-1px;
+  top:calc(100% + 8px);
+
+  background:rgba(245,242,235,.97);
+  border:1px solid rgba(39,37,33,.25);
+
+  padding:14px 18px 18px;
+
+  box-shadow:0 20px 38px rgba(39,37,33,.08);
 }
 .mobile-menu[hidden]{display:none!important}
 .mobile-menu-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .mobile-menu-monogram{font-family:'EB Garamond',serif;font-size:25px;line-height:1}
 .menu-close{appearance:none;background:none;border:0;color:rgba(39,37,33,.76);font-family:Manrope,Arial,sans-serif;font-size:34px;line-height:1;cursor:pointer;padding:0 2px}
-.mobile-menu-nav{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin:12px 0 20px}
-.mobile-menu-nav a{font-family:'EB Garamond',serif;font-size:32px;line-height:1.2}
+.mobile-menu-nav{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+
+  gap:8px;
+  margin:8px 0 16px;
+}
+
+.mobile-menu-nav a{
+  font-family:'EB Garamond',serif;
+  font-size:24px;
+  line-height:1.15;
+  font-weight:400;
+}
 .mobile-rsvp{justify-self:center;min-width:120px;margin:0 auto}
 .topbar.menu-open .menu-toggle span:nth-child(1){transform:translateY(6.7px) rotate(45deg)}
 .topbar.menu-open .menu-toggle span:nth-child(2){opacity:0}
 .topbar.menu-open .menu-toggle span:nth-child(3){transform:translateY(-6.7px) rotate(-45deg)}
 
 .hero{height:100svh;min-height:660px;position:relative;overflow:hidden;isolation:isolate}
-.hero-image{width:100%;height:100%;object-fit:cover;object-position:center 44%;display:block;position:relative;z-index:0;transform:scale(1.035);animation:heroSettle 1.8s cubic-bezier(.22,1,.36,1) .05s both;will-change:transform}
+.hero-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 44%;
+  display:block;
+  position:relative;
+  z-index:0;
+
+  opacity:0;
+  transform:none;
+
+  animation:heroReveal 2.2s cubic-bezier(.22,1,.36,1) .08s forwards;
+
+  will-change:opacity, transform;
+}
+@keyframes heroReveal{
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:1;
+  }
+}
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -238,31 +285,41 @@ button[type=submit]:active{transform:translateY(0)}
   }
   .topbar.menu-open .monogram{grid-column:1;grid-row:1}
   .topbar.menu-open .menu-toggle{grid-column:3;grid-row:1}
-  .mobile-menu{
-    position:static;
-    grid-column:1 / -1;
-    grid-row:2;
-    border:0;
-    border-top:0;
-    box-shadow:none;
-    padding:40px 0 44px;
-    background:transparent;
-  }
-  .mobile-menu-nav{
-    gap:19px;
-    margin:0 0 28px;
-  }
-  .mobile-menu-nav a{
-    font-size:33px;
-    line-height:1.16;
-  }
-  .mobile-rsvp{
-    display:flex;
-    width:max-content;
-    margin:0 auto;
-    padding:11px 22px;
-    font-size:13px!important;
-  }
+.mobile-menu{
+  position:static;
+
+  grid-column:1 / -1;
+  grid-row:2;
+
+  border:0;
+  border-top:0;
+  box-shadow:none;
+
+  padding:26px 0 30px;
+
+  background:transparent;
+}
+
+.mobile-menu-nav{
+  gap:11px;
+  margin:0 0 22px;
+}
+
+.mobile-menu-nav a{
+  font-size:25px;
+  line-height:1.12;
+}
+
+.mobile-rsvp{
+  display:flex;
+
+  width:max-content;
+  margin:0 auto;
+
+  padding:9px 18px;
+
+  font-size:12px!important;
+}
 
   /* Timeline height follows content, so the center rule always extends correctly. */
   .timeline{
@@ -663,15 +720,31 @@ body.modal-open{
   grid-template-columns:repeat(4,auto);
   justify-content:center;
   align-items:start;
-  column-gap:34px;
+  column-gap:0;
 
-  margin-bottom:38px;
+  margin-bottom:34px;
 }
 
 .countdown-item{
+  position:relative;
   display:flex;
   flex-direction:column;
   align-items:center;
+
+  padding:0 24px;
+}
+
+.countdown-item:not(:last-child)::after{
+  content:"";
+  position:absolute;
+
+  right:0;
+  top:8px;
+
+  width:1px;
+  height:58px;
+
+  background:rgba(39,37,33,.18);
 }
 
 .countdown-number{
@@ -743,11 +816,14 @@ body.modal-open{
     padding:42px 18px 68px;
   }
 
-  .countdown{
-    grid-template-columns:repeat(4,auto);
-    justify-content:center;
-    column-gap:14px;
-    margin-bottom:30px;
+  .countdown-item{
+    padding:0 10px;
+  }
+
+  .countdown-item:not(:last-child)::after{
+    top:5px;
+    height:32px;
+    background:rgba(39,37,33,.14);
   }
 
   .countdown-number{
